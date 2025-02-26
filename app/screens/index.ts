@@ -1,3 +1,13 @@
 export * from "./WelcomeScreen"
 export * from "./ErrorScreen/ErrorBoundary"
 // export other screens here
+export * from "./dashboard/home/HomeScreen"
+export * from "./dashboard/map/MapsScreen"
+export * from "./dashboard/notifications/NotificationsScreen"
+export * from "./dashboard/favorites/FavoritesScreen"
+export * from "./dashboard/profile/ProfileScreen"
+export * from "./dashboard/home/EventDetailScreen"
+export * from "./login/LoginScreen"
+export * from "./register/RegisterScreen"
+export * from "./forgotpassword/ForgotPasswordScreen"
+export * from "./forgotpassword/ResetLinkSentConfirmationScreen"

@@ -11,9 +11,10 @@ import {
 } from "react-native"
 import { isRTL, translate } from "../i18n"
 import type { ThemedStyle, ThemedStyleArray } from "@/theme"
-import { $styles } from "../theme"
+import { $styles, typography } from "../theme"
 import { Text, TextProps } from "./Text"
 import { useAppTheme } from "@/utils/useAppTheme"
+import { he } from "date-fns/locale"
 
 export interface TextFieldAccessoryProps {
   style: StyleProp<ViewStyle | TextStyle | ImageStyle>
@@ -98,6 +99,9 @@ export interface TextFieldProps extends Omit<TextInputProps, "ref"> {
    * Note: It is a good idea to memoize this.
    */
   LeftAccessory?: ComponentType<TextFieldAccessoryProps>
+  
+  height: number,
+  fontSize: number,
 }
 
 /**
@@ -125,7 +129,10 @@ export const TextField = forwardRef(function TextField(props: TextFieldProps, re
     style: $inputStyleOverride,
     containerStyle: $containerStyleOverride,
     inputWrapperStyle: $inputWrapperStyleOverride,
+    height,
+    fontSize,
     ...TextInputProps
+    
   } = props
   const input = useRef<TextInput>(null)
 
@@ -166,6 +173,8 @@ export const TextField = forwardRef(function TextField(props: TextFieldProps, re
     $helperStyle,
     status === "error" && { color: colors.error },
     HelperTextProps?.style,
+
+
   ]
 
   /**
@@ -215,7 +224,7 @@ export const TextField = forwardRef(function TextField(props: TextFieldProps, re
           placeholderTextColor={colors.textDim}
           {...TextInputProps}
           editable={!disabled}
-          style={themed($inputStyles)}
+          style={[themed($inputStyles),{fontSize:fontSize,height:height}]}
         />
 
         {!!RightAccessory && (
@@ -255,22 +264,25 @@ const $inputWrapperStyle: ThemedStyle<ViewStyle> = ({ colors }) => ({
   overflow: "hidden",
 })
 
-const $inputStyle: ThemedStyle<ViewStyle> = ({ colors, typography, spacing }) => ({
+const $inputStyle: ThemedStyle<ViewStyle> = ({ colors, typography, spacing }, ) => ({
   flex: 1,
   alignSelf: "stretch",
-  fontFamily: typography.primary.normal,
+  fontFamily: typography.primary.regular,
   color: colors.text,
   fontSize: 16,
   height: 24,
   // https://github.com/facebook/react-native/issues/21720#issuecomment-532642093
   paddingVertical: 0,
   paddingHorizontal: 0,
-  marginVertical: spacing.xs,
+  marginVertical: 0,
   marginHorizontal: spacing.sm,
 })
 
 const $helperStyle: ThemedStyle<TextStyle> = ({ spacing }) => ({
-  marginTop: spacing.xs,
+  marginTop: spacing.xxxs,
+  fontFamily: typography.fonts.inter.medium,
+  fontSize:12,
+  lineHeight: 16,
 })
 
 const $rightAccessoryStyle: ThemedStyle<ViewStyle> = ({ spacing }) => ({

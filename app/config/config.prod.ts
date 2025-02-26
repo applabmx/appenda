@@ -6,5 +6,7 @@
  * https://reactnative.dev/docs/security#storing-sensitive-info
  */
 export default {
-  API_URL: "CHANGEME",
+  API_URL: "https://agenda.cdn-capital.digital/",
+  SHARE_BASE_URL: "https://www.chilango.com/agenda/evento/",
+  USER_INFO: "USER_INFO"
 }

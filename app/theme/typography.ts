@@ -16,6 +16,11 @@ export const customFontsToLoad = {
   spaceGroteskMedium,
   spaceGroteskSemiBold,
   spaceGroteskBold,
+  interRegular: require("../../assets/fonts/Inter-Regular.ttf"),
+  interMedium: require("../../assets/fonts/Inter-Medium.ttf"),
+  interSemiBold: require("../../assets/fonts/Inter-SemiBold.ttf"),
+  popinsMedium: require("../../assets/fonts/Poppins-Medium.ttf"),
+  interBold: require("../../assets/fonts/Inter-Bold.ttf"),
 }
 
 const fonts = {
@@ -49,6 +54,15 @@ const fonts = {
     // Android only font.
     normal: "monospace",
   },
+  inter:{
+    regular: "interRegular",
+    medium: "interMedium",
+    semiBold: "interSemiBold",
+    bold:"interMedium"
+  },
+  poppins:{
+    medium: "popinsMedium",
+  }
 }
 
 export const typography = {
@@ -59,13 +73,13 @@ export const typography = {
   /**
    * The primary font. Used in most places.
    */
-  primary: fonts.spaceGrotesk,
+  primary: fonts.inter,
   /**
    * An alternate font used for perhaps titles and stuff.
    */
-  secondary: Platform.select({ ios: fonts.helveticaNeue, android: fonts.sansSerif }),
+  secondary: Platform.select({ ios: fonts.inter, android: fonts.inter }),
   /**
    * Lets get fancy with a monospace font!
    */
-  code: Platform.select({ ios: fonts.courier, android: fonts.monospace }),
+  code: Platform.select({ ios: fonts.inter, android: fonts.inter }),
 }

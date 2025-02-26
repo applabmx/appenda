@@ -101,7 +101,29 @@ export const iconRegistry = {
   settings: require("../../assets/icons/settings.png"),
   view: require("../../assets/icons/view.png"),
   x: require("../../assets/icons/x.png"),
+  home:require("../../assets/icons/home_icon.png"),
+  location:require("../../assets/icons/location_icon.png"),
+  notification:require("../../assets/icons/notification_icon.png"),
+  favorite:require("../../assets/icons/favorite_icon.png"),
+  profile:require("../../assets/icons/profile_icon.png"),
+  search: require("../../assets/icons/search_icon.png"),
+  calendar: require("../../assets/icons/calendar_icon.png"),
+  filterIcon: require("../../assets/icons/filter_icon.png"),
+  heartEmpty: require("../../assets/icons/heart_empty_icon.png"),
+  shareButtonIcon:require("../../assets/icons/share_icon.png"),
+  notificationButtonIcon: require("../../assets/icons/notification_button_icon.png"),
+  time: require("../../assets/icons/time_icon.png"),
+  backButtonIcon: require("../../assets/icons/back_button_icon.png"),
+  appLogo: require("../../assets/icons/app_logo.png"),
+  passwordView: require("../../assets/icons/password_view_icon.png"),
+  passwordHide: require("../../assets/icons/password_hide_icon.png"),
+  userNameIocn: require("../../assets/icons/user_name_icon.png"),
+  passwordIcon: require("../../assets/icons/password_icon.png"),
+  emailIcon: require("../../assets/icons/email_icon.png"),
+  phoneNumberIcon: require("../../assets/icons/phone_number_icon.png"),
+  
 }
+
 
 const $imageStyleBase: ImageStyle = {
   resizeMode: "contain",

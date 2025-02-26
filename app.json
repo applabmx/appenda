@@ -23,16 +23,25 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/app-icon-android-adaptive-foreground.png",
         "backgroundImage": "./assets/images/app-icon-android-adaptive-background.png"
+      },
+      "splash": {
+        "backgroundColor": "#001240"
       }
     },
     "ios": {
       "icon": "./assets/images/app-icon-ios.png",
       "supportsTablet": true,
-      "bundleIdentifier": "com.linkmexico.appenda"
+      "bundleIdentifier": "com.linkmexico.appenda",
+      "splash": {
+        "backgroundColor": "#001240"
+      }
     },
     "web": {
       "favicon": "./assets/images/app-icon-web-favicon.png",
-      "bundler": "metro"
+      "bundler": "metro",
+      "splash": {
+        "backgroundColor": "#001240"
+      }
     },
     "plugins": [
       "expo-localization",
@@ -40,15 +49,18 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/app-icon-android-adaptive-foreground.png",
+          "image": "./assets/images/appenda_blue_icon.png",
           "imageWidth": 300,
           "resizeMode": "contain",
-          "backgroundColor": "#191015"
+          "backgroundColor": "#001240"
         }
       ]
     ],
     "experiments": {
       "tsconfigPaths": true
+    },
+    "splash": {
+      "backgroundColor": "#001240"
     }
   },
   "ignite": {

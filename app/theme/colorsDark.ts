@@ -33,6 +33,8 @@ const palette = {
 
   overlay20: "rgba(25, 16, 21, 0.2)",
   overlay50: "rgba(25, 16, 21, 0.5)",
+  redButton:"#EE5570",
+  white:"#FFFFFF"
 } as const
 
 export const colors = {
@@ -47,4 +49,5 @@ export const colors = {
   separator: palette.neutral300,
   error: palette.angry500,
   errorBackground: palette.angry100,
+  redButtonColor: palette.redButton
 } as const

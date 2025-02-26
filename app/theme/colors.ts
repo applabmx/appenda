@@ -33,6 +33,14 @@ const palette = {
 
   overlay20: "rgba(25, 16, 21, 0.2)",
   overlay50: "rgba(25, 16, 21, 0.5)",
+  rojo:"#EA2B4C",
+  ligthgrey: "#9EA2AE",
+  lessgrey: "#E3E3E3",
+  white: "#FFFFFF",
+  grey:"#444444",
+  pageBackground:"#FAFAFA",
+  black:"#000000",
+  redButton:"#EA2B4C"
 } as const
 
 export const colors = {
@@ -82,4 +90,13 @@ export const colors = {
    * Error Background.
    */
   errorBackground: palette.angry100,
+  bottomMenuSelectdColor: palette.rojo,
+  bottomMenuUnselectedColor: palette.ligthgrey,
+  textFieldBorderColor:palette.lessgrey,
+  pageBackgroundColor: palette.pageBackground,
+  loadingIndicatorColor: palette.rojo,
+  categoryBorderColor:palette.grey,
+  whiteColor:palette.white,
+  blackColor:palette.black,
+  redButtonColor: palette.redButton
 } as const

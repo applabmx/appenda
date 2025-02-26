@@ -12,6 +12,8 @@ import Config from "../config"
 import { navigationRef, useBackButtonHandler } from "./navigationUtilities"
 import { useAppTheme, useThemeProvider } from "@/utils/useAppTheme"
 import { ComponentProps } from "react"
+import { DashboardNavigator } from "./DashboardNavigator"
+import { useStores } from "@/models"
 
 /**
  * This type allows TypeScript to know what routes are defined in this navigator
@@ -29,6 +31,18 @@ import { ComponentProps } from "react"
 export type AppStackParamList = {
   Welcome: undefined
   // 🔥 Your screens go here
+  Dashboard: undefined
+  Home: undefined
+  Map: undefined
+  Notification: undefined
+  Favorites: undefined
+  Profile: undefined
+  dashboard: undefined
+  EventDetail: undefined
+  Login: undefined
+  Register: undefined
+  ForgotPassword: undefined
+  ResetLinkSentConfirmation: { email: string }
   // IGNITE_GENERATOR_ANCHOR_APP_STACK_PARAM_LIST
 }
 
@@ -51,6 +65,10 @@ const AppStack = observer(function AppStack() {
     theme: { colors },
   } = useAppTheme()
 
+  const {
+    authenticationStore: { isLoggedIn },
+  } = useStores()
+
   return (
     <Stack.Navigator
       screenOptions={{
@@ -60,10 +78,22 @@ const AppStack = observer(function AppStack() {
           backgroundColor: colors.background,
         },
       }}
+      initialRouteName={ "Dashboard"}
     >
-      <Stack.Screen name="Welcome" component={Screens.WelcomeScreen} />
-      {/** 🔥 Your screens go here */}
-      {/* IGNITE_GENERATOR_ANCHOR_APP_STACK_SCREENS */}
+      {
+        <>
+         <Stack.Screen name="Dashboard" component={DashboardNavigator} />
+         <Stack.Screen name="EventDetail" component={Screens.EventDetailScreen} />
+        <Stack.Screen name="Login" component={Screens.LoginScreen} />
+        <Stack.Screen name="Register" component={Screens.RegisterScreen} />
+        <Stack.Screen name="ForgotPassword" component={Screens.ForgotPasswordScreen} />
+        <Stack.Screen
+          name="ResetLinkSentConfirmation"
+          component={Screens.ResetLinkSentConfirmationScreen}
+        />
+      </>
+         /** 🔥 Your screens go here */
+      }
     </Stack.Navigator>
   )
 })

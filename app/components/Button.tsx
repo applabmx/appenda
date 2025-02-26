@@ -11,8 +11,9 @@ import type { ThemedStyle, ThemedStyleArray } from "@/theme"
 import { $styles } from "../theme"
 import { Text, TextProps } from "./Text"
 import { useAppTheme } from "@/utils/useAppTheme"
+import React from "react"
 
-type Presets = "default" | "filled" | "reversed"
+type Presets = "default" | "filled" | "reversed" | "red" | "redouline"
 
 export interface ButtonAccessoryProps {
   style: StyleProp<any>
@@ -177,11 +178,10 @@ export function Button(props: ButtonProps) {
 }
 
 const $baseViewStyle: ThemedStyle<ViewStyle> = ({ spacing }) => ({
-  minHeight: 56,
-  borderRadius: 4,
+  minHeight:40,
+  borderRadius: 12,
   justifyContent: "center",
   alignItems: "center",
-  paddingVertical: spacing.sm,
   paddingHorizontal: spacing.sm,
   overflow: "hidden",
 })
@@ -189,7 +189,7 @@ const $baseViewStyle: ThemedStyle<ViewStyle> = ({ spacing }) => ({
 const $baseTextStyle: ThemedStyle<TextStyle> = ({ typography }) => ({
   fontSize: 16,
   lineHeight: 20,
-  fontFamily: typography.primary.medium,
+  fontFamily: typography.fonts.inter.semiBold,
   textAlign: "center",
   flexShrink: 1,
   flexGrow: 0,
@@ -225,22 +225,42 @@ const $viewPresets: Record<Presets, ThemedStyleArray<ViewStyle>> = {
     $baseViewStyle,
     ({ colors }) => ({ backgroundColor: colors.palette.neutral800 }),
   ],
+  red: [
+    $styles.row,
+    $baseViewStyle,
+    ({ colors }) => ({ backgroundColor: colors.palette.redButton }),
+  ],
+  redouline: [
+    $styles.row,
+    $baseViewStyle,
+    ({ colors }) => ({
+      borderWidth: 1,
+      borderColor: colors.palette.redButton,
+      backgroundColor: colors.transparent,
+    }),
+  ],
 }
 
 const $textPresets: Record<Presets, ThemedStyleArray<TextStyle>> = {
   default: [$baseTextStyle],
   filled: [$baseTextStyle],
   reversed: [$baseTextStyle, ({ colors }) => ({ color: colors.palette.neutral100 })],
+  red: [$baseTextStyle, ({ colors }) => ({ color: colors.palette.white })],
+  redouline: [$baseTextStyle,({ colors }) => ({ color: colors.palette.redButton })],
 }
 
 const $pressedViewPresets: Record<Presets, ThemedStyle<ViewStyle>> = {
   default: ({ colors }) => ({ backgroundColor: colors.palette.neutral200 }),
   filled: ({ colors }) => ({ backgroundColor: colors.palette.neutral400 }),
   reversed: ({ colors }) => ({ backgroundColor: colors.palette.neutral700 }),
+  red: ({ colors }) => ({ backgroundColor: colors.palette.redButton }),
+  redouline: ({ colors }) => ({ backgroundColor: colors.transparent }),
 }
 
 const $pressedTextPresets: Record<Presets, ThemedStyle<ViewStyle>> = {
   default: () => ({ opacity: 0.9 }),
   filled: () => ({ opacity: 0.9 }),
   reversed: () => ({ opacity: 0.9 }),
+  red: () => ({ opacity: 0.9 }),
+  redouline: () => ({ opacity: 0.9 }),
 }
